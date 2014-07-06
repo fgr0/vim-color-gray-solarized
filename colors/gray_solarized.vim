@@ -366,7 +366,7 @@ hi! link vimUserFunc Function
 hi! link helpSpecial Special
 hi! link vimSet Normal
 hi! link vimSetEqual Normal
-exe "hi! vimCommentString"  .s:fmt_none    .s:fg_violet .s:bg_none
+exe "hi! vimCommentString"  .s:fmt_none    .s:fg_magenta .s:bg_none
 exe "hi! vimCommand"        .s:fmt_none    .s:fg_green .s:bg_none
 exe "hi! vimCmdSep"         .s:fmt_bold    .s:fg_blue   .s:bg_none
 exe "hi! helpExample"       .s:fmt_none    .s:fg_base1  .s:bg_none
@@ -533,6 +533,29 @@ exe "hi! hsNiceOperator"     . s:fg_cyan   .s:bg_none   .s:fmt_none
 exe "hi! hsniceoperator"     . s:fg_cyan   .s:bg_none   .s:fmt_none
 
 "}}}
+" markdown syntax highlighting "{{{
+" ---------------------------------------------------------------------
+" exe "hi! markdownHeadingRule"           .
+exe "hi! markdownHeadingDelimiter"      .s:fg_blue      .s:bg_none      .s:fmt_none
+exe "hi! markdownOrderedListMarker"     .s:fg_green     .s:bg_none      .s:fmt_none
+exe "hi! markdownListMarker"            .s:fg_green     .s:bg_none      .s:fmt_none
+exe "hi! markdownItemDelimiter"         .s:fg_green     .s:bg_none      .s:fmt_none
+exe "hi! markdownItalic"                .s:fg_base1     .s:bg_none      .s:fmt_ital
+exe "hi! markdownBold"                  .s:fg_none      .s:bg_none      .s:fmt_bold
+exe "hi! markdownH1"                    .s:fg_green     .s:bg_none      .s:fmt_bold
+exe "hi! markdownH2"                    .s:fg_green     .s:bg_none      .s:fmt_none
+exe "hi! markdownH3"                    .s:fg_green     .s:bg_none      .s:fmt_none
+exe "hi! markdownH4"                    .s:fg_green     .s:bg_none      .s:fmt_none
+exe "hi! markdownH5"                    .s:fg_green     .s:bg_none      .s:fmt_none
+exe "hi! markdownH6"                    .s:fg_green     .s:bg_none      .s:fmt_none
+exe "hi! markdownCodeDelimiter"         .s:fg_base01    .s:bg_none      .s:fmt_none
+exe "hi! markdownCode"                  .s:fg_cyan      .s:bg_none      .s:fmt_none
+exe "hi! markdownCodeBlock"             .s:fg_blue      .s:bg_none      .s:fmt_none
+exe "hi! markdownLinkDelimiter"         .s:fg_base01    .s:bg_none      .s:fmt_none
+exe "hi! markdownLinkTextDelimiter"     .s:fg_base01    .s:bg_none      .s:fmt_none
+exe "hi! markdownURL"                   .s:fg_violet    .s:bg_none      .s:fmt_ital
+exe "hi! markdownLinkText"              .s:fg_magenta   .s:bg_none      .s:fmt_none
+" }}}
 " pandoc markdown syntax highlighting "{{{
 " ---------------------------------------------------------------------
 
