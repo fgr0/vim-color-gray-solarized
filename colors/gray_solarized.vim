@@ -36,47 +36,69 @@
     if exists("syntax_on")
         syntax reset
     endif
+
+    set background=dark
+    set linespace=3
+
     let colors_name = "gray_solarized"
 " }}}
 
 " Setting color palett {{{
     if has("gui_running")
         let s:vmode       = "gui"
-        let s:base03      = "#222222"
-        let s:base02      = "#262626"
-        let s:base01      = "#4e4e4e"
-        let s:base00      = "#585858"
-        let s:base0       = "#909090"
-        let s:base1       = "#CBCBCB"
-        let s:base2       = "#d7d7af"
-        let s:base3       = "#ffffd7"
-        let s:yellow      = "#b58900"
-        let s:orange      = "#cb4b16"
-        let s:red         = "#dc322f"
-        let s:magenta     = "#d33682"
-        let s:violet      = "#6c71c4"
-        let s:blue        = "#268bd2"
-        let s:cyan        = "#2aa198"
-        let s:green       = "#859900" "original
-        " let s:green       = "#719e07" "experimental
+        let s:base03      = "#282828" " #222222
+        let s:base02      = "#282828" " #262626
+        let s:base01      = "#5e5e5e"
+        let s:base00      = "#8d8d8d"
+        let s:base0       = "#8d8d8d" " #909090
+        let s:base1       = "#b0b0b0" " #CBCBCB
+        let s:base2       = "#f7f7f7" " #d7d7af
+        let s:base3       = "#f7f7f7" " #ffffd7
+        let s:yellow      = "#b48831" " #b58900
+        let s:orange      = "#c15242" " #cb4b16
+        let s:red         = "#dd1836" " #dc322f
+        let s:magenta     = "#d51f7f" " #d33682
+        let s:violet      = "#c99cd2" " #6c71c4
+        let s:blue        = "#3a8bca" " #268bd2
+        let s:cyan        = "#40a296" " #2aa198
+        let s:green       = "#8fb70f" " #859900
+    elseif &t_Co >= 16
+        let s:vmode       = "cterm"
+        let s:base03      = "NONE"
+        let s:base02      = "0"
+        let s:base01      = "8"
+        let s:base00      = "7"
+        let s:base0       = "7"
+        let s:base1       = "7"
+        let s:base2       = "15"
+        let s:base3       = "15"
+        let s:yellow      = "3"
+        let s:orange      = "9"
+        let s:red         = "1"
+        let s:magenta     = "5"
+        let s:violet      = "13"
+        let s:blue        = "4"
+        let s:cyan        = "6"
+        let s:green       = "2"
     else
         let s:vmode       = "cterm"
-        let s:base03      = "233"      " 0*
-        let s:base02      = "234"         " 0
-        let s:base01      = "59"    " 2*
-        let s:base00      = "240"   " 3*
-        let s:base0       = "246"     " 4*
-        let s:base1       = "251"     " 6*
-        let s:base2       = "253"     " 7
-        let s:base3       = "230"         " 7*
-        let s:yellow      = "136"    " 3
-        let s:orange      = "166"      " 1*
-        let s:red         = "124"       " 1
-        let s:magenta     = "125"   " 5
-        let s:violet      = "61"  " 5*
-        let s:blue        = "33"      " 4
-        let s:cyan        = "37"      " 6
-        let s:green       = "64"     " 2
+        let s:bright      = "* term=bold cterm=bold"
+        let s:base03      = "NONE"
+        let s:base02      = "0"
+        let s:base01      = "0".s:bright
+        let s:base00      = "NONE"
+        let s:base0       = "NONE"
+        let s:base1       = "7"
+        let s:base2       = "7".s:bright
+        let s:base3       = "7".s:bright
+        let s:yellow      = "3"
+        let s:orange      = "1".s:bright
+        let s:red         = "1"
+        let s:magenta     = "5"
+        let s:violet      = "5".s:bright
+        let s:blue        = "4"
+        let s:cyan        = "6"
+        let s:green       = "2"
     endif
 " }}}
 
@@ -90,9 +112,9 @@
     let s:s               = ",standout"
     let s:ou              = ""
     let s:ob              = ""
-    let s:b           = ",bold"
-    let s:bb          = ""
-    let s:u           = ",underline"
+    let s:b               = ",bold"
+    let s:bb              = ""
+    let s:u               = ",underline"
     if s:terminal_italic == 0
         let s:i = ""
     else
@@ -267,7 +289,7 @@ exe "hi! Ignore"         .s:fmt_none   .s:fg_none   .s:bg_none
 exe "hi! Error"          .s:fmt_bold   .s:fg_red    .s:bg_none
 "       *Error           any erroneous construct
 
-exe "hi! Todo"           .s:fmt_bold   .s:fg_magenta.s:bg_none
+exe "hi! Todo"           .s:fmt_none   .s:fg_magenta.s:bg_none
 "       *Todo            anything that needs extra attention; mostly the
 "                        keywords TODO FIXME and XXX
 "
@@ -286,7 +308,7 @@ exe "hi! IncSearch"      .s:fmt_stnd   .s:fg_orange .s:bg_none
 exe "hi! Search"         .s:fmt_revr   .s:fg_yellow .s:bg_none
 exe "hi! MoreMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! ModeMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
-exe "hi! LineNr"         .s:fmt_none   .s:fg_base01 .s:bg_base02
+exe "hi! LineNr"         .s:fmt_none   .s:fg_base01 .s:bg_none
 exe "hi! CursorLineNr"   .s:fmt_bold   .s:fg_base0  .s:bg_base02
 exe "hi! Question"       .s:fmt_bold   .s:fg_cyan   .s:bg_none
 if ( has("gui_running") || &t_Co > 8 )
@@ -345,7 +367,7 @@ hi! link helpSpecial Special
 hi! link vimSet Normal
 hi! link vimSetEqual Normal
 exe "hi! vimCommentString"  .s:fmt_none    .s:fg_violet .s:bg_none
-exe "hi! vimCommand"        .s:fmt_none    .s:fg_yellow .s:bg_none
+exe "hi! vimCommand"        .s:fmt_none    .s:fg_green .s:bg_none
 exe "hi! vimCmdSep"         .s:fmt_bold    .s:fg_blue   .s:bg_none
 exe "hi! helpExample"       .s:fmt_none    .s:fg_base1  .s:bg_none
 exe "hi! helpOption"        .s:fmt_none    .s:fg_cyan   .s:bg_none
