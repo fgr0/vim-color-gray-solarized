@@ -46,12 +46,12 @@
 " Setting color palett {{{
     if has("gui_running")
         let s:vmode       = "gui"
-        let s:base03      = "#282828" " #222222
-        let s:base02      = "#282828" " #262626
-        let s:base01      = "#5e5e5e"
+        let s:base03      = "#1a1a1a" " #222222
+        let s:base02      = "#262626" " #262626 #303030
+        let s:base01      = "#5a5a5a" 
         let s:base00      = "#8d8d8d"
-        let s:base0       = "#8d8d8d" " #909090
-        let s:base1       = "#b0b0b0" " #CBCBCB
+        let s:base0       = "#9b9b9b" " #909090#9b9b9b
+        let s:base1       = "#bebebe" " #CBCBCB 
         let s:base2       = "#f7f7f7" " #d7d7af
         let s:base3       = "#f7f7f7" " #ffffd7
         let s:yellow      = "#b48831" " #b58900
@@ -67,8 +67,8 @@
         let s:base03      = "NONE"
         let s:base02      = "0"
         let s:base01      = "8"
-        let s:base00      = "7"
-        let s:base0       = "7"
+        let s:base00      = "NONE"
+        let s:base0       = "NONE"
         let s:base1       = "7"
         let s:base2       = "15"
         let s:base3       = "15"
@@ -297,8 +297,8 @@ exe "hi! Todo"           .s:fmt_none   .s:fg_magenta.s:bg_none
 " Extended highlighting "{{{
 " ---------------------------------------------------------------------
 
-exe "hi! SpecialKey" .s:fmt_bold   .s:fg_base00 .s:bg_none
-exe "hi! NonText"    .s:fmt_bold   .s:fg_base00 .s:bg_none
+exe "hi! SpecialKey"     .s:fmt_bold   .s:fg_base00 .s:bg_none
+exe "hi! NonText"        .s:fmt_bold   .s:fg_base01 .s:bg_none
 exe "hi! StatusLine"     .s:fmt_none   .s:fg_base1  .s:bg_base02 .s:fmt_revbb
 exe "hi! StatusLineNC"   .s:fmt_none   .s:fg_base00 .s:bg_base02 .s:fmt_revbb
 exe "hi! Visual"         .s:fmt_none   .s:fg_base01 .s:bg_base03 .s:fmt_revbb
@@ -335,11 +335,28 @@ exe "hi! DiffDelete"     .s:fmt_none   .s:fg_red    .s:bg_base02
 exe "hi! DiffText"       .s:fmt_none   .s:fg_blue   .s:bg_base02 .s:sp_blue
 endif
 hi! link SignColumn LineNr
+exe "hi! ShowMarksHLl"   .s:fmt_none   .s:fg_base0  .s:bg_none
+exe "hi! ShowMarksHLu"   .s:fmt_none   .s:fg_base0  .s:bg_none
+exe "hi! ShowMarksHLo"   .s:fmt_none   .s:fg_base0  .s:bg_none
+exe "hi! ShowMarksHLm"   .s:fmt_none   .s:fg_base0  .s:bg_none
+exe "hi! SignifySignAdd" .s:fmt_none   .s:fg_green  .s:bg_none
+exe "hi! SignifySignChange" .s:fmt_none   .s:fg_yellow  .s:bg_none
+exe "hi! SignifySignDelete" .s:fmt_none   .s:fg_red  .s:bg_none
+hi! link SignifyLineAdd SignifySignAdd
+hi! link SignifyLineChange SignifySignChange
+hi! link SignifyLineDelete SignifySignDelete
 exe "hi! Conceal"        .s:fmt_none   .s:fg_blue   .s:bg_none
-exe "hi! SpellBad"       .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_red
-exe "hi! SpellCap"       .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_violet
-exe "hi! SpellRare"      .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_cyan
-exe "hi! SpellLocal"     .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_yellow
+if has('gui_running')
+    exe "hi! SpellBad"   .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_red
+    exe "hi! SpellCap"   .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_violet
+    exe "hi! SpellRare"  .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_cyan
+    exe "hi! SpellLocal" .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_yellow
+else
+    exe "hi! SpellBad"   .s:fmt_curl   .s:fg_none   .s:bg_orange  .s:sp_red
+    exe "hi! SpellCap"   .s:fmt_curl   .s:fg_none   .s:bg_violet  .s:sp_violet
+    exe "hi! SpellRare"  .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_cyan
+    exe "hi! SpellLocal" .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_yellow
+endif
 exe "hi! Pmenu"          .s:fmt_none   .s:fg_base0  .s:bg_base02  .s:fmt_revbb
 exe "hi! PmenuSel"       .s:fmt_none   .s:fg_base01 .s:bg_base2   .s:fmt_revbb
 exe "hi! PmenuSbar"      .s:fmt_none   .s:fg_base2  .s:bg_base0   .s:fmt_revbb
@@ -536,25 +553,34 @@ exe "hi! hsniceoperator"     . s:fg_cyan   .s:bg_none   .s:fmt_none
 " markdown syntax highlighting "{{{
 " ---------------------------------------------------------------------
 " exe "hi! markdownHeadingRule"           .
-exe "hi! markdownHeadingDelimiter"      .s:fg_blue      .s:bg_none      .s:fmt_none
+exe "hi! markdownHeadingDelimiter"      .s:fg_base01    .s:bg_none      .s:fmt_bold
 exe "hi! markdownOrderedListMarker"     .s:fg_green     .s:bg_none      .s:fmt_none
 exe "hi! markdownListMarker"            .s:fg_green     .s:bg_none      .s:fmt_none
 exe "hi! markdownItemDelimiter"         .s:fg_green     .s:bg_none      .s:fmt_none
 exe "hi! markdownItalic"                .s:fg_base1     .s:bg_none      .s:fmt_ital
 exe "hi! markdownBold"                  .s:fg_none      .s:bg_none      .s:fmt_bold
-exe "hi! markdownH1"                    .s:fg_green     .s:bg_none      .s:fmt_bold
-exe "hi! markdownH2"                    .s:fg_green     .s:bg_none      .s:fmt_none
-exe "hi! markdownH3"                    .s:fg_green     .s:bg_none      .s:fmt_none
-exe "hi! markdownH4"                    .s:fg_green     .s:bg_none      .s:fmt_none
-exe "hi! markdownH5"                    .s:fg_green     .s:bg_none      .s:fmt_none
-exe "hi! markdownH6"                    .s:fg_green     .s:bg_none      .s:fmt_none
-exe "hi! markdownCodeDelimiter"         .s:fg_base01    .s:bg_none      .s:fmt_none
-exe "hi! markdownCode"                  .s:fg_cyan      .s:bg_none      .s:fmt_none
-exe "hi! markdownCodeBlock"             .s:fg_blue      .s:bg_none      .s:fmt_none
+exe "hi! markdownH1"                    .s:fg_base2     .s:bg_none      .s:fmt_bold
+exe "hi! markdownH2"                    .s:fg_base2     .s:bg_none      .s:fmt_none
+exe "hi! markdownH3"                    .s:fg_base2     .s:bg_none      .s:fmt_none
+exe "hi! markdownH4"                    .s:fg_base2     .s:bg_none      .s:fmt_none
+exe "hi! markdownH5"                    .s:fg_base2     .s:bg_none      .s:fmt_none
+exe "hi! markdownH6"                    .s:fg_base2     .s:bg_none      .s:fmt_none
+exe "hi! markdownBlockquoteDelimiter"   .s:fg_cyan      .s:bg_none      .s:fmt_none
+exe "hi! markdownBlockquote"            .s:fg_base1      .s:bg_none      .s:fmt_ital
+exe "hi! markdownCodeDelimiter"         .s:fg_orange    .s:bg_none      .s:fmt_none
+exe "hi! markdownCode"                  .s:fg_blue      .s:bg_none      .s:fmt_none
+exe "hi! markdownCodeBlock"             .s:fg_cyan      .s:bg_none      .s:fmt_none
+" exe "hi! markdownFencedCodeBlock"       .s:fg_cyan      .s:bg_none      .s:fmt_none
+exe "hi! markdownFencedCodeBlock"       .s:fg_base0      .s:bg_none      .s:fmt_none
 exe "hi! markdownLinkDelimiter"         .s:fg_base01    .s:bg_none      .s:fmt_none
 exe "hi! markdownLinkTextDelimiter"     .s:fg_base01    .s:bg_none      .s:fmt_none
-exe "hi! markdownURL"                   .s:fg_violet    .s:bg_none      .s:fmt_ital
-exe "hi! markdownLinkText"              .s:fg_magenta   .s:bg_none      .s:fmt_none
+exe "hi! markdownLinkTextContainer"     .s:fg_base01    .s:bg_none      .s:fmt_none
+exe "hi! markdownLinkUrlContainer"      .s:fg_base01    .s:bg_none      .s:fmt_none
+exe "hi! markdownURL"                   .s:fg_cyan      .s:bg_none      .s:fmt_ital
+exe "hi! markdownLinkURL"               .s:fg_base01    .s:bg_none      .s:fmt_ital
+exe "hi! markdownUrlLinkInText"         .s:fg_blue      .s:bg_none      .s:fmt_undr
+exe "hi! markdownLinkText"              .s:fg_blue      .s:bg_none      .s:fmt_none
+exe "hi! markdownLinkReference"         .s:fg_blue      .s:bg_none      .s:fmt_none
 " }}}
 " pandoc markdown syntax highlighting "{{{
 " ---------------------------------------------------------------------
