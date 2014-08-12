@@ -38,7 +38,7 @@
     endif
 
     set background=dark
-    set linespace=3
+    " set linespace=3
 
     let colors_name = "gray_solarized"
 " }}}
@@ -46,14 +46,14 @@
 " Setting color palett {{{
     if has("gui_running")
         let s:vmode       = "gui"
-        let s:base03      = "#1a1a1a" " #222222
-        let s:base02      = "#262626" " #262626 #303030
-        let s:base01      = "#5a5a5a" 
-        let s:base00      = "#8d8d8d"
-        let s:base0       = "#9b9b9b" " #909090#9b9b9b
-        let s:base1       = "#bebebe" " #CBCBCB 
-        let s:base2       = "#f7f7f7" " #d7d7af
-        let s:base3       = "#f7f7f7" " #ffffd7
+        let s:base03      = "#1b1b1b" " #222222
+        let s:base02      = "#202020" " #262626 #303030
+        let s:base01      = "#5b5b5b" " #6f6f6f
+        let s:base00      = "#5b5b5b" " #a5a5a5
+        let s:base0       = "#a2a2a2" " #909090 #9b9b9b
+        let s:base1       = "#a2a2a2" " #CBCBCB
+        let s:base2       = "#f4f4f4" " #d7d7af
+        let s:lightblue       = "#86d0ed" " #ffffd7
         let s:yellow      = "#b48831" " #b58900
         let s:orange      = "#c15242" " #cb4b16
         let s:red         = "#dd1836" " #dc322f
@@ -68,10 +68,10 @@
         let s:base02      = "0"
         let s:base01      = "8"
         let s:base00      = "NONE"
-        let s:base0       = "NONE"
+        let s:base0       = "7"
         let s:base1       = "7"
         let s:base2       = "15"
-        let s:base3       = "15"
+        let s:lightblue       = "12"
         let s:yellow      = "3"
         let s:orange      = "9"
         let s:red         = "1"
@@ -86,11 +86,11 @@
         let s:base03      = "NONE"
         let s:base02      = "0"
         let s:base01      = "0".s:bright
-        let s:base00      = "NONE"
+        let s:base00      = "0".s:bright
         let s:base0       = "NONE"
         let s:base1       = "7"
         let s:base2       = "7".s:bright
-        let s:base3       = "7".s:bright
+        let s:lightblue       = "7".s:bright
         let s:yellow      = "3"
         let s:orange      = "1".s:bright
         let s:red         = "1"
@@ -140,7 +140,7 @@
     exe "let s:bg_base0     = ' ".s:vmode."bg=".s:base0  ."'"
     exe "let s:bg_base1     = ' ".s:vmode."bg=".s:base1  ."'"
     exe "let s:bg_base2     = ' ".s:vmode."bg=".s:base2  ."'"
-    exe "let s:bg_base3     = ' ".s:vmode."bg=".s:base3  ."'"
+    exe "let s:bg_lightblue     = ' ".s:vmode."bg=".s:lightblue  ."'"
     exe "let s:bg_green     = ' ".s:vmode."bg=".s:green  ."'"
     exe "let s:bg_yellow    = ' ".s:vmode."bg=".s:yellow ."'"
     exe "let s:bg_orange    = ' ".s:vmode."bg=".s:orange ."'"
@@ -159,7 +159,7 @@
     exe "let s:fg_base0     = ' ".s:vmode."fg=".s:base0  ."'"
     exe "let s:fg_base1     = ' ".s:vmode."fg=".s:base1  ."'"
     exe "let s:fg_base2     = ' ".s:vmode."fg=".s:base2  ."'"
-    exe "let s:fg_base3     = ' ".s:vmode."fg=".s:base3  ."'"
+    exe "let s:fg_lightblue     = ' ".s:vmode."fg=".s:lightblue  ."'"
     exe "let s:fg_green     = ' ".s:vmode."fg=".s:green  ."'"
     exe "let s:fg_yellow    = ' ".s:vmode."fg=".s:yellow ."'"
     exe "let s:fg_orange    = ' ".s:vmode."fg=".s:orange ."'"
@@ -197,7 +197,7 @@
         exe "let s:sp_base0     = ' guisp=".s:base0  ."'"
         exe "let s:sp_base1     = ' guisp=".s:base1  ."'"
         exe "let s:sp_base2     = ' guisp=".s:base2  ."'"
-        exe "let s:sp_base3     = ' guisp=".s:base3  ."'"
+        exe "let s:sp_lightblue     = ' guisp=".s:lightblue  ."'"
         exe "let s:sp_green     = ' guisp=".s:green  ."'"
         exe "let s:sp_yellow    = ' guisp=".s:yellow ."'"
         exe "let s:sp_orange    = ' guisp=".s:orange ."'"
@@ -216,7 +216,7 @@
         let s:sp_base0     = ""
         let s:sp_base1     = ""
         let s:sp_base2     = ""
-        let s:sp_base3     = ""
+        let s:sp_lightblue     = ""
         let s:sp_green     = ""
         let s:sp_yellow    = ""
         let s:sp_orange    = ""
@@ -565,13 +565,13 @@ exe "hi! markdownH3"                    .s:fg_base2     .s:bg_none      .s:fmt_n
 exe "hi! markdownH4"                    .s:fg_base2     .s:bg_none      .s:fmt_none
 exe "hi! markdownH5"                    .s:fg_base2     .s:bg_none      .s:fmt_none
 exe "hi! markdownH6"                    .s:fg_base2     .s:bg_none      .s:fmt_none
-exe "hi! markdownBlockquoteDelimiter"   .s:fg_cyan      .s:bg_none      .s:fmt_none
-exe "hi! markdownBlockquote"            .s:fg_base1      .s:bg_none      .s:fmt_ital
+exe "hi! markdownBlockquoteDelimiter"   .s:fg_yellow      .s:bg_none      .s:fmt_none
+exe "hi! markdownBlockquote"            .s:fg_base01     .s:bg_none      .s:fmt_ital
 exe "hi! markdownCodeDelimiter"         .s:fg_orange    .s:bg_none      .s:fmt_none
 exe "hi! markdownCode"                  .s:fg_blue      .s:bg_none      .s:fmt_none
 exe "hi! markdownCodeBlock"             .s:fg_cyan      .s:bg_none      .s:fmt_none
-" exe "hi! markdownFencedCodeBlock"       .s:fg_cyan      .s:bg_none      .s:fmt_none
-exe "hi! markdownFencedCodeBlock"       .s:fg_base0      .s:bg_none      .s:fmt_none
+exe "hi! markdownFencedCodeBlock"       .s:fg_cyan      .s:bg_none      .s:fmt_none
+" exe "hi! markdownFencedCodeBlock"       .s:fg_base01      .s:bg_none      .s:fmt_none
 exe "hi! markdownLinkDelimiter"         .s:fg_base01    .s:bg_none      .s:fmt_none
 exe "hi! markdownLinkTextDelimiter"     .s:fg_base01    .s:bg_none      .s:fmt_none
 exe "hi! markdownLinkTextContainer"     .s:fg_base01    .s:bg_none      .s:fmt_none
