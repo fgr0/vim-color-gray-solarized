@@ -12,22 +12,22 @@ function! airline#themes#gray_solarized#refresh()
   " Colors
   """"""""""""""""""""""""""""""""""""""""""""""""
   " Base colors
-  let s:base03  = {'t': 233, 'g': '#1c1c1c'}
-  let s:base02  = {'t': 234, 'g': '#262626'}
-  let s:base01  = {'t': 59 , 'g': '#4e4e4e'}
-  let s:base00  = {'t': 240, 'g': '#585858'}
-  let s:base0   = {'t': 246, 'g': '#909090'}
-  let s:base1   = {'t': 251, 'g': '#CBCBCB'}
-  let s:base2   = {'t': 253, 'g': '#d7d7af'}
-  let s:base3   = {'t': 230, 'g': '#ffffd7'}
-  let s:yellow  = {'t': 136, 'g': '#b58900'}
-  let s:orange  = {'t': 166, 'g': '#cb4b16'}
-  let s:red     = {'t': 160, 'g': '#dc322f'}
-  let s:magenta = {'t': 164, 'g': '#d33682'}
-  let s:violet  = {'t': 61 , 'g': '#6c71c4'}
-  let s:blue    = {'t': 33 , 'g': '#268bd2'}
-  let s:cyan    = {'t': 37 , 'g': '#2aa198'}
-  let s:green   = {'t': 64 , 'g': '#859900'}
+  let s:base03  = {'t': 233, 'g': '#1b1b1b'}
+  let s:base02  = {'t': 234, 'g': '#202020'}
+  let s:base01  = {'t': 59 , 'g': '#5b5b5b'}
+  let s:base00  = {'t': 240, 'g': '#5b5b5b'}
+  let s:base0   = {'t': 246, 'g': '#a2a2a2'}
+  let s:base1   = {'t': 251, 'g': '#a2a2a2'}
+  let s:base2   = {'t': 253, 'g': '#f4f4f4'}
+  let s:base3   = {'t': 230, 'g': '#86d0ed'}
+  let s:yellow  = {'t': 136, 'g': '#b48831'}
+  let s:orange  = {'t': 166, 'g': '#c15242'}
+  let s:red     = {'t': 160, 'g': '#dd1836'}
+  let s:magenta = {'t': 164, 'g': '#d51f7f'}
+  let s:violet  = {'t': 61 , 'g': '#c99cd2'}
+  let s:blue    = {'t': 33 , 'g': '#3a8bca'}
+  let s:cyan    = {'t': 37 , 'g': '#40a296'}
+  let s:green   = {'t': 64 , 'g': '#8fb70f'}
 
   """"""""""""""""""""""""""""""""""""""""""""""""
   " Simple mappings

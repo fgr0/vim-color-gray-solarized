@@ -53,7 +53,7 @@
         let s:base0       = "#a2a2a2" " #909090 #9b9b9b
         let s:base1       = "#a2a2a2" " #CBCBCB
         let s:base2       = "#f4f4f4" " #d7d7af
-        let s:lightblue       = "#86d0ed" " #ffffd7
+        let s:lightblue   = "#86d0ed" " #ffffd7
         let s:yellow      = "#b48831" " #b58900
         let s:orange      = "#c15242" " #cb4b16
         let s:red         = "#dd1836" " #dc322f
