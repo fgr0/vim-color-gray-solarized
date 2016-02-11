@@ -5,7 +5,7 @@
 "       (Modifications for Gray Solarized Scheme)
 " License: OSI approved MIT license (see end of this file)
 " Created: While being sick
-" Modified: 2014 June 28
+" Modified: 2016-02-11
 
 " Environment Specific Overrides {{{
     " Terminals that support italics
@@ -713,7 +713,7 @@ exe "hi! jsStorageClass" .s:fg_green s:bg_none .s:fmt_none
 " https://github.com/airblade/vim-gitgutter
 " ---------------------------------------------------------------------
 exe   "hi!   SyntasticErrorSign"   . s:fmt_none . s:fg_red    . s:bg_base02
-exe   "hi!   SyntasticWarningSign" . s:fmt_none . s:fg_orange . s:bg_base02
+exe   "hi!   SyntasticWarningSign" . s:fmt_none . s:fg_yellow . s:bg_base02
 
 " SyntasticErrorSign - For syntax errors, links to 'error' by default
 " SyntasticWarningSign - For syntax warnings, links to 'todo' by default
